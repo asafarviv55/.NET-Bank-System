@@ -57,13 +57,13 @@ namespace Bank.Data
                 return;   // DB has been seeded
             }
 
-            var Loans = new Loan[]
+            var loans = new Loan[]
             {
                 new Loan{ created_at = DateTime.Now , loan_balance = 1000,  owner = new User{ birth_date = DateTime.Now ,created_at = DateTime.Now, created_by = "asaf" , email = "asf@gmail.com" , phone_number="0546522487" , updated_at = DateTime.Now} }
 
             };
 
-            context.UsersAuths.AddRange(usersAuths);
+            context.Loans.AddRange(loans);
             context.SaveChanges();
 
         }
