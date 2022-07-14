@@ -66,6 +66,44 @@ namespace Bank.Data
             context.Loans.AddRange(loans);
             context.SaveChanges();
 
+
+            /**************************************/
+            /*********************************/
+            // Look for any PassBackOperations.
+
+            if (context.PassBackOperations.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+            var passBackOperations = new PassBackOperation[]
+            {
+                new PassBackOperation{ is_charge = true,  account_balance = 1000 , created_at = DateTime.Now
+                ,owner= new User { birth_date = DateTime.Now , created_at = DateTime.Now , created_by = "asaf" , email = "asaf.arviv@gmail.com" ,phone_number = "05487534567" ,updated_at = DateTime.Now } }
+            };
+
+            context.PassBackOperations.AddRange(passBackOperations);
+            context.SaveChanges();
+
+            /**************************************/
+            // Look for any CreditExpenses.
+
+            if (context.CreditExpenses.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+            var creditExpenses = new CreditExpense[]
+            {
+                new CreditExpense{ owner= new User { birth_date = DateTime.Now , created_at = DateTime.Now , created_by = "asaf" , email = "asaf.arviv@gmail.com" ,phone_number = "05487534567" ,updated_at = DateTime.Now } }
+            };
+
+            context.CreditExpenses.AddRange(creditExpenses);
+            context.SaveChanges();
+
+
+
+
         }
     }
 }
