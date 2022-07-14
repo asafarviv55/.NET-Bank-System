@@ -6,7 +6,7 @@ namespace Bank.Models
     public class UsersAuth
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         public User owner { get; set; }
