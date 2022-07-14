@@ -13,8 +13,14 @@ namespace Bank.Data
         }
 
         public DbSet<User> Users { get; set; }
+
         public DbSet<UsersAuth> UsersAuths { get; set; }
 
+        public DbSet<Loan> Loans { get; set; }
+
+        public DbSet<CreditExpense> CreditExpenses { get; set; }
+
+        public DbSet<PassBackOperation> PassBackOperations { get; set; }
 
 
 
@@ -23,6 +29,9 @@ namespace Bank.Data
         {
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<UsersAuth>().ToTable("UsersAuth");
+            modelBuilder.Entity<Loan>().ToTable("Loan");
+            modelBuilder.Entity<CreditExpense>().ToTable("CreditExpense");
+            modelBuilder.Entity<PassBackOperation>().ToTable("PassBackOperation");
 
         }
     }

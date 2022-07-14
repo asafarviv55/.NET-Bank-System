@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Bank.Data;
 using Bank.Models;
 
-namespace Bank.Pages.Users
+namespace Bank.Pages.UsersAuths
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,13 @@ namespace Bank.Pages.Users
             _context = context;
         }
 
-        public IList<User> User { get;set; } = default!;
+        public IList<UsersAuth> UsersAuth { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Users != null)
+            if (_context.UsersAuths != null)
             {
-                User = await _context.Users.ToListAsync();
+                UsersAuth = await _context.UsersAuths.ToListAsync();
             }
         }
     }

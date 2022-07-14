@@ -1,0 +1,37 @@
+﻿@page
+@model Bank.Pages.UsersAuths.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>UsersAuth</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UsersAuth.username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UsersAuth.username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UsersAuth.password)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UsersAuth.password)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UsersAuth.created_at)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UsersAuth.created_at)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.UsersAuth?.id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

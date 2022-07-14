@@ -15,6 +15,36 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="User.id" />
             <div class="form-group">
+                <label asp-for="User.email" class="control-label"></label>
+                <input asp-for="User.email" class="form-control" />
+                <span asp-validation-for="User.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.birth_date" class="control-label"></label>
+                <input asp-for="User.birth_date" class="form-control" />
+                <span asp-validation-for="User.birth_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.phone_number" class="control-label"></label>
+                <input asp-for="User.phone_number" class="form-control" />
+                <span asp-validation-for="User.phone_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.created_at" class="control-label"></label>
+                <input asp-for="User.created_at" class="form-control" />
+                <span asp-validation-for="User.created_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.updated_at" class="control-label"></label>
+                <input asp-for="User.updated_at" class="form-control" />
+                <span asp-validation-for="User.updated_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.created_by" class="control-label"></label>
+                <input asp-for="User.created_by" class="form-control" />
+                <span asp-validation-for="User.created_by" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

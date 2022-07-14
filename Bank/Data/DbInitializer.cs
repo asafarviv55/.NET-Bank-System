@@ -36,12 +36,36 @@ namespace Bank.Data
 
             var usersAuths = new UsersAuth[]
             {
-                new UsersAuth{owner = new User{ birth_date = DateTime.Now ,created_at = DateTime.Now, created_by = "asaf" , email = "asf@gmail.com" , phone_number="0546522487" , updated_at = DateTime.Now} }
+                new UsersAuth{
+                    owner = new User{ birth_date = DateTime.Now ,created_at = DateTime.Now, created_by = "asaf" , email = "asf@gmail.com" , phone_number="0546522487" , updated_at = DateTime.Now}
+                    ,created_at=DateTime.Now
+                    ,password="sadd322"
+                    , username="asadf" }
 
             };
 
             context.UsersAuths.AddRange(usersAuths);
             context.SaveChanges();
+
+
+
+            /*********************************/
+            // Look for any Loans.
+
+            if (context.Loans.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+            var Loans = new Loan[]
+            {
+                new Loan{ created_at = DateTime.Now , loan_balance = 1000,  owner = new User{ birth_date = DateTime.Now ,created_at = DateTime.Now, created_by = "asaf" , email = "asf@gmail.com" , phone_number="0546522487" , updated_at = DateTime.Now} }
+
+            };
+
+            context.UsersAuths.AddRange(usersAuths);
+            context.SaveChanges();
+
         }
     }
 }

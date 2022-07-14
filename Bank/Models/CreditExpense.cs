@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bank.Models
 {
-    public class UsersAuth
+    public class CreditExpense
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -11,14 +11,8 @@ namespace Bank.Models
 
         public User owner { get; set; }
 
-
-        public string username { get; set; }
-
-        public string password { get; set; }
+        public int expense_amount { get; set; }
 
         public DateTime created_at { get; set; }
-
-
-
     }
 }

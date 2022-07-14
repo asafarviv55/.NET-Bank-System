@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Bank.Data;
 using Bank.Models;
 
-namespace Bank.Pages.Users
+namespace Bank.Pages.CreditExpenses
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,13 @@ namespace Bank.Pages.Users
             _context = context;
         }
 
-        public IList<User> User { get;set; } = default!;
+        public IList<CreditExpense> CreditExpense { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Users != null)
+            if (_context.CreditExpenses != null)
             {
-                User = await _context.Users.ToListAsync();
+                CreditExpense = await _context.CreditExpenses.ToListAsync();
             }
         }
     }
