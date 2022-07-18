@@ -27,7 +27,7 @@
                 </button>
 
                 
-                        @if (signInManager.IsSignedIn(User)@* && User.IsInRole("Admin")*@)
+                        @if (signInManager.IsSignedIn(User) )
                         {
                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                             <ul class="navbar-nav flex-grow-1">
@@ -52,6 +52,10 @@
                             </ul>
                           </div>
                         }
+                        @elsif( signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+
+                        }
+
 
                     <partial name="_LoginPartial" />
             </div>
