@@ -1,6 +1,7 @@
-using Bank.Data;
-using Microsoft.AspNetCore.Identity;
+global using Bank.Models;
+global using Bank.Data;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +11,11 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<BankContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("BankContext")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<BankContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 
 
 var app = builder.Build();
@@ -37,7 +39,7 @@ using (var scope = app.Services.CreateScope())
 
     var context = services.GetRequiredService<BankContext>();
     context.Database.EnsureCreated();
-    DbInitializer.Initialize(context);
+    //DbInitializer.Initialize(context);
 }
 
 

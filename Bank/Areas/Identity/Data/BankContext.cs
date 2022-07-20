@@ -5,15 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bank.Data;
 
-public class BankContext : IdentityDbContext<IdentityUser>
+public class BankContext : IdentityDbContext<ApplicationUser>
 {
     public BankContext(DbContextOptions<BankContext> options)
         : base(options)
     {
     }
-    public DbSet<User> Users { get; set; }
 
-    public DbSet<UsersAuth> UsersAuths { get; set; }
+    private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly UserManager<ApplicationUser> _userManager;
+
+
+   
 
     public DbSet<Loan> Loans { get; set; }
 
@@ -22,14 +25,26 @@ public class BankContext : IdentityDbContext<IdentityUser>
     public DbSet<PassBackOperation> PassBackOperations { get; set; }
 
 
+    private ApplicationUser CreateUser()
+    {
+        try
+        {
+            return Activator.CreateInstance<ApplicationUser>();
+        }
+        catch
+        {
+            throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " +
+                $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                $"override the external login page in /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
+        }
+    }
 
 
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected async Task OnModelCreatingAsync(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<User>().ToTable("User");
-        modelBuilder.Entity<UsersAuth>().ToTable("UsersAuth");
+
+        
         modelBuilder.Entity<Loan>().ToTable("Loan");
         modelBuilder.Entity<CreditExpense>().ToTable("CreditExpense");
         modelBuilder.Entity<PassBackOperation>().ToTable("PassBackOperation");

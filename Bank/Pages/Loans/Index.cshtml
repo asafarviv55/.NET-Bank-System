@@ -19,7 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Loan[0].created_at)
             </th>
-            <th></th>
+             <th>
+                @Html.DisplayNameFor(model => model.Loan[0].UserId)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +32,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.created_at)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.UserId)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |

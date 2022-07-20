@@ -2,8 +2,8 @@
 @using Bank.Models;
 @using System.Collections;
 
-@inject SignInManager<IdentityUser> signInManager;
-@inject UserManager<IdentityUser> userManager;
+@inject SignInManager<ApplicationUser> signInManager;
+@inject UserManager<ApplicationUser> userManager;
 
 
 <!DOCTYPE html>
@@ -31,12 +31,6 @@
                         {
                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                             <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Users/Index">Users</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/UsersAuths/Index">UsersAuth</a>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-page="/Loans/Index">Loans</a>
                                 </li>

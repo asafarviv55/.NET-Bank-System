@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bank.Models
@@ -10,7 +11,10 @@ namespace Bank.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        public User owner { get; set; }
+        [ForeignKey("ApplicationUser")]
+        [MaxLength(450)]
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         public int loan_balance { get; set; }
 
