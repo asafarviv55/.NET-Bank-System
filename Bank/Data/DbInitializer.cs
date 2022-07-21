@@ -1,13 +1,11 @@
-﻿using Bank.Models;
-
-namespace Bank.Data
+﻿namespace Bank.Data
 {
     public class DbInitializer
     {
         public static void Initialize(BankContext context)
         {
-          
-            /*********************************/
+
+            /*********************************//*
             // Look for any Loans.
 
             if (context.Loans.Any())
@@ -22,7 +20,7 @@ namespace Bank.Data
             };
 
             context.Loans.AddRange(loans);
-            context.SaveChanges();
+            context.SaveChanges();*/
 
 
             /**************************************/
