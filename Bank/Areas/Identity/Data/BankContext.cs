@@ -1,11 +1,10 @@
-﻿using Bank.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bank.Data;
 
-public class BankContext : IdentityDbContext<ApplicationUser>
+public class BankContext : IdentityDbContext<ApplicationUser, ApplicationRole, int>
 {
     public BankContext(DbContextOptions<BankContext> options)
         : base(options)
@@ -16,7 +15,7 @@ public class BankContext : IdentityDbContext<ApplicationUser>
     private readonly UserManager<ApplicationUser> _userManager;
 
 
-   
+
 
     public DbSet<Loan> Loans { get; set; }
 
@@ -44,7 +43,7 @@ public class BankContext : IdentityDbContext<ApplicationUser>
     {
         base.OnModelCreating(modelBuilder);
 
-        
+
         modelBuilder.Entity<Loan>().ToTable("Loan");
         modelBuilder.Entity<CreditExpense>().ToTable("CreditExpense");
         modelBuilder.Entity<PassBackOperation>().ToTable("PassBackOperation");

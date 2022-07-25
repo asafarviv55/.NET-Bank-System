@@ -45,7 +45,6 @@ using (var scope = app.Services.CreateScope())
 
     var context = services.GetRequiredService<BankContext>();
     context.Database.EnsureCreated();
-    //DbInitializer.Initialize(context);
 }
 
 
