@@ -12,16 +12,28 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Loan.loan_balance)
+            @Html.DisplayNameFor(model => model.Loan.current_interest_rate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Loan.loan_balance)
+            @Html.DisplayFor(model => model.Loan.original_loan_fund)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Loan.created_at)
+            @Html.DisplayNameFor(model => model.Loan.next_payment_date)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Loan.created_at)
+            @Html.DisplayFor(model => model.Loan.next_payment_amount)
+        </dd>
+         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Loan.current_interest_rate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Loan.original_loan_fund)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Loan.next_payment_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Loan.next_payment_amount)
         </dd>
     </dl>
 </div>

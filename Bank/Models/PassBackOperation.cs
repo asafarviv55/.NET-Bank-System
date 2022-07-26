@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bank.Models
@@ -12,11 +11,19 @@ namespace Bank.Models
 
         public ApplicationUser owner { get; set; }
 
-        public bool is_charge { get; set; }
+        public DateTime created_at { get; set; }
+
+        public string reference { get; set; }
+
+        public string action { get; set; }
+
+        public decimal right_balance { get; set; }
+
+        public decimal due_balance { get; set; }
 
         public float account_balance { get; set; }
 
-        public DateTime created_at { get; set; }
+
 
     }
 }

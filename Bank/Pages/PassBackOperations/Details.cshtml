@@ -12,22 +12,40 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PassBackOperation.is_charge)
+            @Html.DisplayNameFor(model => model.PassBackOperation.owner)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PassBackOperation.is_charge)
+            @Html.DisplayFor(model => model.PassBackOperation.owner)
+        </dd>
+         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassBackOperation.reference)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassBackOperation.reference)
+        </dd>
+         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassBackOperation.action)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassBackOperation.action)
+        </dd>
+         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassBackOperation.right_balance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassBackOperation.right_balance)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassBackOperation.due_balance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassBackOperation.due_balance)
+        </dd>
+         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PassBackOperation.account_balance)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PassBackOperation.account_balance)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PassBackOperation.created_at)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PassBackOperation.created_at)
         </dd>
     </dl>
 </div>

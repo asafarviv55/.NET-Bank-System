@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bank.Models
@@ -14,13 +13,16 @@ namespace Bank.Models
         [ForeignKey("ApplicationUser")]
         [MaxLength(450)]
         public string UserId { get; set; }
+
         public ApplicationUser User { get; set; }
 
-        public int loan_balance { get; set; }
+        public decimal current_interest_rate { get; set; }
 
-        public DateTime created_at { get; set; }
+        public int original_loan_fund { get; set; }
 
+        public DateTime next_payment_date { get; set; }
 
+        public decimal next_payment_amount { get; set; }
 
     }
 }

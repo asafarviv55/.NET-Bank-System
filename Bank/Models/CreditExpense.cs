@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bank.Models
@@ -12,8 +11,17 @@ namespace Bank.Models
 
         public ApplicationUser owner { get; set; }
 
-        public int expense_amount { get; set; }
+        public DateTime next_billing_date { get; set; }
 
-        public DateTime created_at { get; set; }
+        public string card_number { get; set; }
+
+        public decimal amount { get; set; }
+
+        public string credit_card_holder { get; set; }
+
+        public string credit_company { get; set; }
+
+        public string credit_card_type { get; set; }
+
     }
 }
