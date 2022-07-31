@@ -5,12 +5,14 @@ namespace Bank.Pages.ATM
 {
     public class AtmModel : PageModel
     {
+        private readonly Bank.Data.BankContext _context;
 
         private readonly ILogger<IndexModel> _logger;
 
-        public AtmModel(ILogger<IndexModel> logger)
+        public AtmModel(ILogger<IndexModel> logger, BankContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public void OnGet()
