@@ -11,10 +11,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CreditExpense[0].expense_amount)
+                @Html.DisplayNameFor(model => model.CreditExpense[0].next_billing_date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreditExpense[0].created_at)
+                @Html.DisplayNameFor(model => model.CreditExpense[0].amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].card_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].credit_card_holder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].credit_card_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].credit_company)
             </th>
             <th></th>
         </tr>
@@ -22,12 +34,24 @@
     <tbody>
 @foreach (var item in Model.CreditExpense) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.expense_amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.created_at)
-            </td>
+             <th>
+                @Html.DisplayFor(modelItem => item.next_billing_date)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.amount)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.card_number)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.credit_card_holder)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.credit_card_type)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.credit_company)
+            </th>
             <td>
                 <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
             </td>

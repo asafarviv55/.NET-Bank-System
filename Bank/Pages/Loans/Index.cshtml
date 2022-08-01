@@ -12,10 +12,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Loan[0].loan_balance)
+                @Html.DisplayNameFor(model => model.Loan[0].current_interest_rate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Loan[0].created_at)
+                @Html.DisplayNameFor(model => model.Loan[0].next_payment_amount)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Loan[0].next_payment_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loan[0].original_loan_fund)
             </th>
              <th>
                 @Html.DisplayNameFor(model => model.Loan[0].UserId)
@@ -26,10 +32,16 @@
 @foreach (var item in Model.Loan) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.loan_balance)
+                @Html.DisplayFor(modelItem => item.current_interest_rate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.created_at)
+                @Html.DisplayFor(modelItem => item.next_payment_amount)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.original_loan_fund)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.next_payment_date)
             </td>
              <td>
                 @Html.DisplayFor(modelItem => item.UserId)
