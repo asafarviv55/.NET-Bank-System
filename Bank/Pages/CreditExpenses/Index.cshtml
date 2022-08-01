@@ -11,10 +11,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CreditExpense[0].next_billing_date)
+                @Html.DisplayNameFor(model => model.CreditExpense[0].amount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreditExpense[0].amount)
+                @Html.DisplayNameFor(model => model.CreditExpense[0].card_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].credit_card_holder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].credit_card_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].credit_company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditExpense[0].next_billing_date)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreditExpense[0].card_number)
@@ -34,24 +46,24 @@
     <tbody>
 @foreach (var item in Model.CreditExpense) {
         <tr>
-             <th>
-                @Html.DisplayFor(modelItem => item.next_billing_date)
-            </th>
-            <th>
+            <td>
                 @Html.DisplayFor(modelItem => item.amount)
-            </th>
-            <th>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.card_number)
-            </th>
-            <th>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.credit_card_holder)
-            </th>
-            <th>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.credit_card_type)
-            </th>
-            <th>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.credit_company)
-            </th>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.next_billing_date)
+            </td>
             <td>
                 <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
             </td>
