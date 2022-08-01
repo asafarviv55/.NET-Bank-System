@@ -21,7 +21,7 @@ namespace Bank.Models
 
         public decimal due_balance { get; set; }
 
-        public float account_balance { get; set; }
+        public decimal account_balance { get; set; }
 
 
 

@@ -30,27 +30,30 @@ namespace Bank.Pages.ATM
 
         public void OnPost()
         {
+
+
+
             decimal n1; decimal aAmount = 0;
 
             if (Decimal.TryParse(atmAmount, out n1))
                 aAmount = n1;
 
-            using (_context)
+            var passBackOperation = new PassBackOperation()
             {
-                var passBackOperation = new PassBackOperation()
-                {
-                    account_balance = 343,
-                    action = bankAction,
-                    created_at = DateTime.UtcNow,
-                    due_balance = 0,
-                    right_balance = aAmount,
-                    owner = 1,
-                    reference = ""
-                };
-                _context.PassBackOperations.Add(passBackOperation);
-                _context.SaveChanges();
-                int id = passBackOperation.id;
-            }
+                account_balance = aAmount,
+                action = bankAction,
+                created_at = DateTime.UtcNow,
+                due_balance = 0,
+                right_balance = aAmount,
+                owner = new ApplicationUser(),
+                reference = ""
+            };
+
+            _context.PassBackOperations.Add(passBackOperation);
+            _context.SaveChanges();
+            int id = passBackOperation.id;
+
+
         }
 
 
