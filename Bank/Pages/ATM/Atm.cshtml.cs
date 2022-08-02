@@ -26,18 +26,25 @@ namespace Bank.Pages.ATM
         public string atmAmount { get; set; }
 
 
+        private String getRandomAlphaNumericString()
+        {
+            var chars = "1234567890";
+            var stringChars = new char[8];
+            var random = new Random();
 
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new String(stringChars);
+        }
 
         public void OnPost()
         {
-
-
-
             decimal n1; decimal aAmount = 0;
-
             if (Decimal.TryParse(atmAmount, out n1))
                 aAmount = n1;
-
             var passBackOperation = new PassBackOperation()
             {
                 account_balance = aAmount,
@@ -46,14 +53,11 @@ namespace Bank.Pages.ATM
                 due_balance = 0,
                 right_balance = aAmount,
                 owner = new ApplicationUser(),
-                reference = ""
+                reference = getRandomAlphaNumericString()
             };
-
             _context.PassBackOperations.Add(passBackOperation);
             _context.SaveChanges();
             int id = passBackOperation.id;
-
-
         }
 
 
