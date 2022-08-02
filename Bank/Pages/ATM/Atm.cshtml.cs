@@ -44,7 +44,7 @@ namespace Bank.Pages.ATM
         public void OnPost()
         {
             decimal n1; decimal aAmount = 0;
-            if (Decimal.TryParse(atmAmount, out n1))
+            if (decimal.TryParse(atmAmount, out n1))
                 aAmount = n1;
             var passBackOperation = new PassBackOperation()
             {
