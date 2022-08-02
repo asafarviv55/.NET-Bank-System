@@ -8,7 +8,8 @@ namespace Bank.Pages.ATM
         private readonly Bank.Data.BankContext _context;
 
         private readonly ILogger<IndexModel> _logger;
-
+        private const string DEPOSIT = "DEPOSIT";
+        private const string WITHDRAW = "WITHDRAW";
         public AtmModel(ILogger<IndexModel> logger, BankContext context)
         {
             _logger = logger;
@@ -48,10 +49,10 @@ namespace Bank.Pages.ATM
             var passBackOperation = new PassBackOperation()
             {
                 account_balance = aAmount,
-                action = bankAction,
+                action = bankAction.Equals("Deposit") ? DEPOSIT : WITHDRAW,
                 created_at = DateTime.UtcNow,
-                due_balance = 0,
-                right_balance = aAmount,
+                due_balance = bankAction.Equals("Deposit") ? 0 : aAmount,
+                right_balance = bankAction.Equals("Withdraw") ? aAmount : 0,
                 owner = new ApplicationUser(),
                 reference = getRandomAlphaNumericString()
             };
