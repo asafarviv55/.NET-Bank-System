@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+
 
 namespace Bank.Pages.ATM
 {
@@ -10,10 +12,17 @@ namespace Bank.Pages.ATM
         private readonly ILogger<IndexModel> _logger;
         private const string DEPOSIT = "DEPOSIT";
         private const string WITHDRAW = "WITHDRAW";
-        public AtmModel(ILogger<IndexModel> logger, BankContext context)
+        private static readonly HttpClient client = new HttpClient();
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+
+
+
+        public AtmModel(ILogger<IndexModel> logger, BankContext context, SignInManager<ApplicationUser> signInManager)
         {
             _logger = logger;
             _context = context;
+            _signInManager = signInManager;
         }
 
         public void OnGet()
@@ -41,7 +50,7 @@ namespace Bank.Pages.ATM
             return new String(stringChars);
         }
 
-        public void OnPost()
+        public async Task OnPostAsync()
         {
             decimal n1; decimal aAmount = 0;
             if (decimal.TryParse(atmAmount, out n1))
@@ -53,12 +62,21 @@ namespace Bank.Pages.ATM
                 created_at = DateTime.UtcNow,
                 due_balance = bankAction.Equals("Deposit") ? 0 : aAmount,
                 right_balance = bankAction.Equals("Withdraw") ? aAmount : 0,
-                owner = new ApplicationUser(),
+                owner = ,
+                //dByIdAsync(_signInManager.Context.User.Claims.FirstOrDefault().Clone()),
                 reference = getRandomAlphaNumericString()
             };
             _context.PassBackOperations.Add(passBackOperation);
             _context.SaveChanges();
-            int id = passBackOperation.id;
+
+            /*  client.DefaultRequestHeaders.Accept.Clear();
+              client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+              client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+              var stringTask = client.GetStringAsync("https://localhost:7156/WeatherForecast");
+
+              var msg = await stringTask;
+              Console.Write(msg);*/
         }
 
 

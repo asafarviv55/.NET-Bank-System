@@ -24,6 +24,5 @@ namespace Bank.Models
         public decimal account_balance { get; set; }
 
 
-
     }
 }

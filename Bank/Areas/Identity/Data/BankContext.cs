@@ -46,7 +46,8 @@ public class BankContext : IdentityDbContext<ApplicationUser, ApplicationRole, i
 
         modelBuilder.Entity<Loan>().ToTable("Loan");
         modelBuilder.Entity<CreditExpense>().ToTable("CreditExpense");
-        modelBuilder.Entity<PassBackOperation>().ToTable("PassBackOperation");
+        //  modelBuilder.Entity<PassBackOperation>().HasQueryFilter(p => p.owner.Id.Equals(2));
+        //  modelBuilder.Entity<PassBackOperation>().HasQueryFilter(p => p.owner.Id.Equals(2));
         // Customize the ASP.NET Identity model and override the defaults if needed.
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
