@@ -11,6 +11,10 @@ namespace Bank.Models
 
         public ApplicationUser owner { get; set; }
 
+        [ForeignKey("owner")]
+        public int ownerID { get; set; }
+
+
         public DateTime created_at { get; set; }
 
         public string reference { get; set; }

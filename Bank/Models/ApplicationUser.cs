@@ -11,9 +11,6 @@ namespace Bank.Models
 
         public List<PassBackOperation> passBackOperations { get; set; }
 
-        public static explicit operator ApplicationUser(Task<ApplicationUser> v)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

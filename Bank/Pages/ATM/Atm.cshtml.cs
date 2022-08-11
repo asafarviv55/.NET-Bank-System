@@ -62,7 +62,7 @@ namespace Bank.Pages.ATM
                 created_at = DateTime.UtcNow,
                 due_balance = bankAction.Equals("Deposit") ? 0 : aAmount,
                 right_balance = bankAction.Equals("Withdraw") ? aAmount : 0,
-                owner = ,
+                ownerID = int.Parse(_signInManager.Context.User.Claims.FirstOrDefault().Value),
                 //dByIdAsync(_signInManager.Context.User.Claims.FirstOrDefault().Clone()),
                 reference = getRandomAlphaNumericString()
             };
